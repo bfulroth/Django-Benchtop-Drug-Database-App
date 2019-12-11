@@ -6,8 +6,8 @@ import environ
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
-)  # (broad_benchtop_database/config/settings/base.py - 3 = broad_benchtop_database/)
-APPS_DIR = ROOT_DIR.path("broad_benchtop_database")
+)  # (benchtop_database/config/settings/base.py - 3 = benchtop_database/)
+APPS_DIR = ROOT_DIR.path("benchtop_database")
 
 env = environ.Env()
 
@@ -41,7 +41,10 @@ LOCALE_PATHS = [ROOT_DIR.path("locale")]
 # DATABASES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
-DATABASES = {"default": env.db("DATABASE_URL")}
+
+DATABASES = {
+    "default": env.db("DATABASE_URL", default="postgres:///benchtop_database")
+}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 # URLS
@@ -72,7 +75,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "broad_benchtop_database.users.apps.UsersConfig",
+    "benchtop_database.users.apps.UsersConfig",
     # Your stuff: custom apps go here
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -81,7 +84,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "broad_benchtop_database.contrib.sites.migrations"}
+MIGRATION_MODULES = {"sites": "benchtop_database.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -178,7 +181,7 @@ TEMPLATES = [
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
-                "broad_benchtop_database.utils.context_processors.settings_context",
+                "benchtop_database.utils.context_processors.settings_context",
             ],
         },
     }
@@ -255,9 +258,9 @@ ACCOUNT_EMAIL_REQUIRED = True
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
 ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-ACCOUNT_ADAPTER = "broad_benchtop_database.users.adapters.AccountAdapter"
+ACCOUNT_ADAPTER = "benchtop_database.users.adapters.AccountAdapter"
 # https://django-allauth.readthedocs.io/en/latest/configuration.html
-SOCIALACCOUNT_ADAPTER = "broad_benchtop_database.users.adapters.SocialAccountAdapter"
+SOCIALACCOUNT_ADAPTER = "benchtop_database.users.adapters.SocialAccountAdapter"
 
 
 # Your stuff...
