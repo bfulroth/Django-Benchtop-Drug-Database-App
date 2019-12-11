@@ -23,11 +23,11 @@ class BenchtopDrugDB(models.Model):
 
 class BenchtopDrugSolubility(models.Model):
 
-    broad_id = CharField(primary_key=22)
-    buffer = CharField()
+    broad_id = CharField(max_length=22)
+    buffer = CharField(max_length=200)
     sol_um = FloatField()
     date = DateField(verbose_name='Experiment Date')
-    source = CharField()
+    source = CharField(max_length=20)
 
 
 
