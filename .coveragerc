@@ -1,0 +1,6 @@
+[report]
+omit =
+    */tests.py
+    */test_*.py
+    */*_tests.py
+    */benchtop_database/__main__.py
