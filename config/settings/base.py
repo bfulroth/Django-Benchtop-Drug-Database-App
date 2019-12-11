@@ -77,7 +77,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "benchtop_database.users.apps.UsersConfig",
     # Your stuff: custom apps go here
-    "benchtop_database.drug_db.apps.DrugDbConfig"
+    "drug_db.apps.DrugDbConfig"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
