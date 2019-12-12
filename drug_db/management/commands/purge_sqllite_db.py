@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 from django.db import transaction
-from ...models import BenchtopDrugDB, BenchtopDrugSolubility
+from ...models import BenchtopDrugLocations, BenchtopDrugSolubility
 
 
 class Command(BaseCommand):
@@ -10,5 +10,5 @@ class Command(BaseCommand):
 
         # All rows are deleted from drug_db tables. Useful for starting over.
         with transaction.atomic():
-            BenchtopDrugDB.objects.all().delete()
+            BenchtopDrugLocations.objects.all().delete()
             BenchtopDrugSolubility.objects.all().delete()
