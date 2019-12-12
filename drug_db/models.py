@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models import DateField, ForeignKey, IntegerField, CharField, FloatField
 
 
-class BenchtopDrugDB(models.Model):
+class BenchtopDrugLocations(models.Model):
 
     broad_id = CharField(max_length=22)
     barcode = IntegerField(unique=True)
