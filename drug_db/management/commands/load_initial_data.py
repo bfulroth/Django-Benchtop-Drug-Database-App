@@ -4,16 +4,17 @@ from ...models import BenchtopDrugDB, BenchtopDrugSolubility
 
 from luigi import build
 
-from ...tasks import DownloadInitialCompoundData
+from ...tasks import DownloadBenchDrugData
 
 
 class Command(BaseCommand):
     help = "Load Initial Drug Data to SQLite DB"
 
     def add_arguments(self, parser):
-        parser.add_argument(parser.add_argument("--purge",
+
+        parser.add_argument("--purge",
                             action="store_true",
-                            help="Optional falag that will purge the database before reloading."))
+                            help="Optional flag that will purge the database before reloading.")
 
     def handle(self, *args, **options):
 
@@ -23,5 +24,6 @@ class Command(BaseCommand):
                 BenchtopDrugDB.objects.all().delete()
                 BenchtopDrugSolubility.objects.all().delete()
 
-        # Get the initial data that is persisted in S3.
-        build([DownloadInitialCompoundData])
+        # Use Luigi to Atomically download the initial data that is persisted in S3.
+        build([DownloadBenchDrugData(bench_drug_data='cmpd_tbl.csv'),
+               DownloadBenchDrugData(bench_drug_data='cmpd_sol_tbl.csv')], local_scheduler=True)
