@@ -16,6 +16,7 @@ urlpatterns = [
     path("users/", include("benchtop_database.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    path("test/", include("drug_db.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:

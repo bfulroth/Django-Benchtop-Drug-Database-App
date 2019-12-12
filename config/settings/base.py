@@ -72,6 +72,7 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
     "rest_framework",
+    'django_tables2',
 ]
 
 LOCAL_APPS = [
@@ -183,6 +184,7 @@ TEMPLATES = [
                 "django.template.context_processors.tz",
                 "django.contrib.messages.context_processors.messages",
                 "benchtop_database.utils.context_processors.settings_context",
+                "django.template.context_processors.request",
             ],
         },
     }
