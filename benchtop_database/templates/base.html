@@ -56,6 +56,9 @@
               <a class="nav-link" href="{% url 'drug_db:add_drug_loc_form' %}">Add Drug</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'drug_db:add_drug_sol_form' %}">Add Solubility</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li>
             {% if request.user.is_authenticated %}

@@ -28,7 +28,3 @@ class BenchtopDrugSolubility(models.Model):
     sol_um = FloatField(verbose_name="Sol. (uM)")
     date = DateField(verbose_name='Experiment Date')
     source = CharField(verbose_name="Source", max_length=20)
-
-
-
-

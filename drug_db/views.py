@@ -49,3 +49,11 @@ class DrugCreateView(CreateView):
 
     # TODO: This shouldn't be hard coded
     success_url = '/overview/locations/'
+
+
+class DrugCreateSolView(CreateView):
+    model = BenchtopDrugSolubility
+    fields = ("broad_id", "buffer", "sol_um", "date", "source")
+
+    # TODO: This shouldn't be hard coded
+    success_url = '/overview/solubility/'

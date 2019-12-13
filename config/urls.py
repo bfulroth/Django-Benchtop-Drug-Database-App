@@ -17,7 +17,7 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
     path("overview/", include(("drug_db.urls", "drug_db"), namespace="drug_db")),
-    path("add_drug_location/", include(("drug_db.urls", "drug_db"), namespace="drub_db"))
+    path("add/", include(("drug_db.urls", "drug_db"), namespace="drub_db"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
