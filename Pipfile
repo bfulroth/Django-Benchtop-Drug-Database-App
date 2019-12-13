@@ -23,6 +23,7 @@ csci-utils = {editable = true,git = 'https://github.com/csci-e-29/2019fa-csci-ut
 luigi = "*"
 pandas = "*"
 boto3 = "*"
+tablib = "*"
 
 [requires]
 python_version = "3.7"
