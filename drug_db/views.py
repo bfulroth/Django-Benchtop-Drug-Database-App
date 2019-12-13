@@ -1,13 +1,16 @@
 
 # Create your views here.
-from django.http import HttpResponse
+from django.http import HttpResponse, request, response
 
 # Import models to be rendered as views.
 from .models import BenchtopDrugLocations, BenchtopDrugSolubility
 
 from django.views.generic import ListView
 from django_tables2 import SingleTableView
+from django_tables2.export.views import ExportMixin
 from .tables import DrugLocationTable, DrugSolubilityTable
+from django_tables2.config import RequestConfig
+from django_tables2.export.export import TableExport
 
 
 def index(request):
@@ -19,13 +22,17 @@ class BenchtopDrugLocationView(ListView):
     template_name = 'drug_db/basic_all_cmpd_loc_view.html'
 
 
-class BenchtopDrugLocationView2(SingleTableView):
+class BenchtopDrugLocationView2(ExportMixin, SingleTableView):
+
     # Turn off Pagination
     SingleTableView.table_pagination = False
 
     model = BenchtopDrugLocations
     table_class = DrugLocationTable
-    template_name = 'drug_db/basic2_all_cmpd_loc_view.html'
+    template_name = 'drug_db/basic_all_cmpd_view.html'
+
+    #TODO: Test adding a link to download.
+
 
 
 class BenchtopDrugSolViewAll(SingleTableView):
@@ -35,4 +42,4 @@ class BenchtopDrugSolViewAll(SingleTableView):
 
     model = BenchtopDrugSolubility
     table_class = DrugSolubilityTable
-    template_name = 'drug_db/basic2_all_cmpd_loc_view.html'
+    template_name = 'drug_db/basic_all_cmpd_view.html'
