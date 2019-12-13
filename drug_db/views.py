@@ -20,11 +20,6 @@ def index(request):
     return HttpResponse("Hello, world. You're at the polls index.")
 
 
-class BenchtopDrugLocationView(ListView):
-    model = BenchtopDrugLocations
-    template_name = 'drug_db/basic_all_cmpd_loc_view.html'
-
-
 class BenchtopDrugLocationView2(ExportMixin, SingleTableView):
 
     # Turn off Pagination
