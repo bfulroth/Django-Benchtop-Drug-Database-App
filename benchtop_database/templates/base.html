@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}Broad Benchtop Database{% endblock title %}</title>
+    <title>{% block title %}Benchtop Database{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -39,7 +39,7 @@
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="{% url 'home' %}">Broad Benchtop Database</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Benchtop Database</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -47,7 +47,16 @@
               <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'about' %}">About</a>
+              <a class="nav-link" href="{% url 'drug_db:drug_loc_overview' %}">Drug Location Table</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'drug_db:drug_sol_overview' %}">Drug Solubility Table</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'drug_db:add_drug_loc_form' %}">Add Drug</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'drug_db:add_drug_sol_form' %}">Add Solubility</a>
             </li>
             {% if request.user.is_authenticated %}
               <li class="nav-item">
@@ -83,7 +92,27 @@
       {% endif %}
 
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+        <h1 style="color:navy">A Scientist’s Benchtop Drug Database</h1><hr>
+        <h5>Welcome!</h5>
+        <p>
+          This application was developed in effort to make the tracking of drugs for testing at the bench<br>
+          less error prone and easier to manage than keeping drug information in Excel documents.
+        </p><hr>
+        <h5>Navigation Bar</h5>
+        <ul style="list-style-type:circle;">
+            <li>
+              <b>Drug Location Table:</b> View all compounds at your bench and their respective locations.
+            </li>
+            <li>
+              <b>Drug Solubility Table:</b> View all solubility information for compounds at your bench.
+            </li>
+            <li>
+              <b>Add Drug:</b> Add a new drug to your location table.
+            </li>
+            <li>
+              <b>Add Solubility:</b> Add solubility info for a drug.
+            </li>
+        </ul>
       {% endblock content %}
 
     </div> <!-- /container -->

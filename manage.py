@@ -23,8 +23,8 @@ if __name__ == "__main__":
         raise
 
     # This allows easy placement of apps within the interior
-    # broad_benchtop_database directory.
-    current_path = os.path.dirname(os.path.abspath(__file__))
-    sys.path.append(os.path.join(current_path, "broad_benchtop_database"))
+    # benchtop_database directory.
+    #current_path = os.path.dirname(os.path.abspath(__file__))
+    #sys.path.append(os.path.join(current_path, "benchtop_database"))
 
     execute_from_command_line(sys.argv)

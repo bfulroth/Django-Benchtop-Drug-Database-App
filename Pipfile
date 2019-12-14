@@ -19,6 +19,11 @@ django-allauth = "*"
 django-crispy-forms = "*"
 django-extensions = "*"
 coreapi = "*"
+csci-utils = {editable = true,git = 'https://github.com/csci-e-29/2019fa-csci-utils-bfulroth'}
+luigi = "*"
+pandas = "*"
+boto3 = "*"
+tablib = "*"
 
 [requires]
 python_version = "3.7"

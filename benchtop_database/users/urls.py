@@ -1,6 +1,6 @@
 from django.urls import path
 
-from broad_benchtop_database.users.views import (
+from benchtop_database.users.views import (
     user_redirect_view,
     user_update_view,
     user_detail_view,

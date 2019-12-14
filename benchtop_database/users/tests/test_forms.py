@@ -1,7 +1,7 @@
 import pytest
 
-from broad_benchtop_database.users.forms import UserCreationForm
-from broad_benchtop_database.users.tests.factories import UserFactory
+from benchtop_database.users.forms import UserCreationForm
+from benchtop_database.users.tests.factories import UserFactory
 
 pytestmark = pytest.mark.django_db
 
