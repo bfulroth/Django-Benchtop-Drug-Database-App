@@ -57,3 +57,9 @@ class DrugCreateSolView(CreateView):
 
     # TODO: This shouldn't be hard coded
     success_url = '/overview/solubility/'
+
+from .forms import FindDrugsForm
+
+def article_create(request):
+    find_drugs = FindDrugsForm()
+    return render(request, "article_form.html", {"form": article_form})
