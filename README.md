@@ -23,7 +23,8 @@ Note: That this cmd can be run for a batch upload of new drug locations.
 
 **Warning**
 If you need to purge the backend database of all data: (This cannot be reversed).
-cmd: python manage.py purge_sqllite_db
+
+- cmd: python manage.py purge_sqllite_db
 
 ## Running the Django Server locally
 
