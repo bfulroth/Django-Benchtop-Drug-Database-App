@@ -3,7 +3,8 @@ from .models import BenchtopDrugLocations, BenchtopDrugSolubility
 
 
 class DrugLocationTable(tables.Table):
-    
+    """Class for displaying drug location data in a web page"""
+
     # Add a row number
     Row = tables.TemplateColumn("{{ row_counter }}")
 
@@ -15,6 +16,7 @@ class DrugLocationTable(tables.Table):
 
 
 class DrugSolubilityTable(tables.Table):
+    """Class for displaying drug solubility data in a web page"""
 
     # Add a row number
     Row = tables.TemplateColumn("{{ row_counter }}")

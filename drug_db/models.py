@@ -1,9 +1,8 @@
 from django.db import models
-
 from django.db.models import DateField, ForeignKey, IntegerField, CharField, FloatField
 
-
 class BenchtopDrugLocations(models.Model):
+    """Django model class that Maps columns to Database tables for drug plate locations"""
 
     broad_id = CharField(verbose_name="Broad ID", max_length=22)
     barcode = IntegerField(verbose_name="Barcode", unique=True)
@@ -22,6 +21,7 @@ class BenchtopDrugLocations(models.Model):
 
 
 class BenchtopDrugSolubility(models.Model):
+    """Django model class that Maps columns to Database tables for solubility data"""
 
     broad_id = CharField(verbose_name="Broad ID", max_length=22)
     buffer = CharField(verbose_name="Buffer", max_length=200)
