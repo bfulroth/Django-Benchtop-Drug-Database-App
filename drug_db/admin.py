@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import BenchtopDrugLocations, BenchtopDrugSolubility
 
-# Register your models here.
+admin.site.register(BenchtopDrugLocations)
+admin.site.register(BenchtopDrugSolubility)
