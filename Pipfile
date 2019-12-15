@@ -23,6 +23,7 @@ luigi = "*"
 pandas = "*"
 boto3 = "*"
 tablib = "*"
+django-tables2 = "*"
 
 [requires]
 python_version = "3.7"
