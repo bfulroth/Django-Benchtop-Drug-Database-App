@@ -26,7 +26,8 @@ jobs:
     - "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
   - stage: answers
     script:
-    - python3 -m benchtop_database
+    - python manage.py load_initial_data
+    - python manage.py purge_sqllite_db
 env:
   global:
   - DATABASE_URL=sqlite:///data/db.sqlite
