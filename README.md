@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.com/bfulroth/Django-Benchtop-Drug-Database-App.svg?branch=master)](https://travis-ci.com/bfulroth/Django-Benchtop-Drug-Database-App)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/12c98d78c674d643f3a6/maintainability)](https://codeclimate.com/github/bfulroth/Django-Benchtop-Drug-Database-App/maintainability)
+
+<a href="https://codeclimate.com/github/bfulroth/Django-Benchtop-Drug-Database-App/test_coverage"><img src="https://api.codeclimate.com/v1/badges/12c98d78c674d643f3a6/test_coverage" /></a>
+
 # Django-Benchtop-Drug-Database-App
 
 The purpose of this app is to take some of the pain and frustration away from tracking of drugs recieved at the lab bench for testing.
