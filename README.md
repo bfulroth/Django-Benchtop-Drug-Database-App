@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/bfulroth/Django-Benchtop-Drug-Database-App.svg?branch=master)](https://travis-ci.com/bfulroth/Django-Benchtop-Drug-Database-App)
+
 # Django-Benchtop-Drug-Database-App
 
 The purpose of this app is to take some of the pain and frustration away from tracking of drugs recieved at the lab bench for testing.
