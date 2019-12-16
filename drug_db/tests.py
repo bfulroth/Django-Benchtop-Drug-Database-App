@@ -9,6 +9,8 @@ from luigi import LocalTarget
 import os
 
 """Tests for drug_db App"""
+
+
 class TestModels(DJTest):
     """Class for testing ORM models for app drug_db"""
 
