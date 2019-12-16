@@ -2,7 +2,12 @@ from django.db import models
 from django.db.models import DateField, ForeignKey, IntegerField, CharField, FloatField
 
 class BenchtopDrugLocations(models.Model):
-    """Django model class that Maps columns to Database tables for drug plate locations"""
+    """
+    Django model class that Maps columns to Database tables for drug plate locations
+    Take note that I did not link these two tables together using a foreign key. The reason is that Broad ID is not
+    unique and the tube barcode is not collected during solubility testing. Unfortunately this means that the two tables
+    lack referential integrity that they should have.  I'm speaking with members of my group in order to address this issue.
+    """
 
     broad_id = CharField(verbose_name="Broad ID", max_length=22)
     barcode = IntegerField(verbose_name="Barcode", unique=True)
@@ -28,3 +33,7 @@ class BenchtopDrugSolubility(models.Model):
     sol_um = FloatField(verbose_name="Sol. (uM)")
     date = DateField(verbose_name='Experiment Date')
     source = CharField(verbose_name="Source", max_length=20)
+
+    def __str__(self):
+        return "BRD: {}, BUFFER: {}, SOL_UM: {}, DATE: {}, SOURCE: {}".format(self.broad_id, self.buffer, self.sol_um,
+                                                                              self.date, self.source)

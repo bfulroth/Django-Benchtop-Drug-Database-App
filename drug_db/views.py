@@ -1,26 +1,21 @@
-
+"""drub_db web page views are specified here"""
 # Create your views here.
-from django.http import HttpResponse, request, response
+from django.http import HttpResponse
 
 # Import models to be rendered as views.
 from .models import BenchtopDrugLocations, BenchtopDrugSolubility
 
-from django.views.generic import ListView, CreateView
+# Import view classes from Django and Dijango Tables 2
+from django.views.generic import CreateView
 from django_tables2 import SingleTableView
 from django_tables2.export.views import ExportMixin
+
+# Import the tables that will be converted into web page views
 from .tables import DrugLocationTable, DrugSolubilityTable
-from django.forms import ModelForm
-from django_tables2.config import RequestConfig
-from django_tables2.export.export import TableExport
-
-from django.urls import reverse_lazy
-
-
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
 
 
 class BenchtopDrugLocationView2(ExportMixin, SingleTableView):
+    """Class that provides the table view for all drugs and their locations"""
 
     # Turn off Pagination
     SingleTableView.table_pagination = False
@@ -29,10 +24,9 @@ class BenchtopDrugLocationView2(ExportMixin, SingleTableView):
     table_class = DrugLocationTable
     template_name = 'drug_db/basic_all_cmpd_view.html'
 
-    #TODO: Test adding a link to download.
-
 
 class BenchtopDrugSolViewAll(SingleTableView):
+    """Class that provides the table view for all drug solubility results"""
 
     # Turn off Pagination
     SingleTableView.table_pagination = False
@@ -43,23 +37,19 @@ class BenchtopDrugSolViewAll(SingleTableView):
 
 
 class DrugCreateView(CreateView):
+    """Class that provides the web page view of a form for entering a new drug into the location table"""
     model = BenchtopDrugLocations
     fields = ("broad_id", "barcode", "well", "plate", "conc_mM",
               "ori_vol_ul", "rem_vol_ul", "mw", "date_aliquoted")
 
-    # TODO: This shouldn't be hard coded
+    # On a successful insert of data, return to the url view that shows all compounds and their locations.
     success_url = '/overview/locations/'
 
 
 class DrugCreateSolView(CreateView):
+    """Class that provides the web page view of a form for entering the solubility info for a drug"""
     model = BenchtopDrugSolubility
     fields = ("broad_id", "buffer", "sol_um", "date", "source")
 
-    # TODO: This shouldn't be hard coded
+    # On a successful insert of data, return to the url view that shows all compounds and their solubility.
     success_url = '/overview/solubility/'
-
-from .forms import FindDrugsForm
-
-def article_create(request):
-    find_drugs = FindDrugsForm()
-    return render(request, "article_form.html", {"form": article_form})

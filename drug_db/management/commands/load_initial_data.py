@@ -9,7 +9,10 @@ import pandas as pd
 
 
 class Command(BaseCommand):
-    """Class that extents BaseCommand that provides the ability to download the initial drug data from S3."""
+    """
+    Class that extents BaseCommand that provides the ability to download the initial drug data from S3 and upload
+    the data to the Django models.
+    """
     help = "Load Initial Drug Data to SQLite DB"
 
     def add_arguments(self, parser):
@@ -39,8 +42,6 @@ class Command(BaseCommand):
 
 
         # As rows will likely never be greater than 1000 a decision was made to use Pandas in memory DataFrames vs. Dask
-        # Get the absolute path.
-
         df_drug_data = pd.read_csv(os.path.join(ROOT, cmpd_tbl))
         df_drug_sol_data = pd.read_csv(os.path.join(ROOT, cmpd_sol_tbl))
 

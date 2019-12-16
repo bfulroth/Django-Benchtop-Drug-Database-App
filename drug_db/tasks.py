@@ -13,7 +13,7 @@ class SavedBenchDrugData(ExternalTask):
     """
     S3_BUCKET_ROOT = 's3://bfulroth-initial-bench-drugdb-data/'
 
-    # # Filename of the initial benchtop drug data saved in s3
+    # Filename of the initial benchtop drug data saved in s3
     bench_drug_data = Parameter(default='cmpd_tbl.csv')
 
     def output(self):
@@ -26,6 +26,7 @@ class DownloadBenchDrugData(Task):
     """
     LOCAL_ROOT = os.path.abspath('data')
 
+    # Filename of the initial benchtop drug data saved in s3
     bench_drug_data = Parameter(default='cmpd_tbl.csv')
 
     def requires(self):
@@ -37,9 +38,8 @@ class DownloadBenchDrugData(Task):
     def output(self):
         return LocalTarget(os.path.join(self.LOCAL_ROOT, self.bench_drug_data))
 
+    # Method that does the work of copying the files in S3 locally
     def run(self):
-        # Use self.output() and self.input() targets to atomically copy
-        # the file locally!
 
         with self.input().open('r') as in_f:
             result = in_f.read()
